@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/media/logo-trant.webp">
+    <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Alpha's MURDES</title>
+    <meta name="description" content="MURDES (Murid Desain): tempat bermain dan belajar desain. Logo, mascot gim, banner, dan lain-lain.">
+    <meta property="og:title" content="Alpha's MURDES">
+    <meta property="og:description" content="Tempat bermain dan belajar ngedesain.">
+    <meta property="og:image" content="https://murdes.alpa.my.id/media/mantap.webp">
+    <meta property="og:url" content="https://murdes.alpa.my.id/">
+</head>
+<body>
+    <header class="topbar"><div class="topbar-in">
+        <a class="brand" href="/"><img src="/media/logo-trant.webp" alt=""><span>Alpha's MURDES</span></a>
+        <div class="top-actions">
+            <a class="top-link" href="https://alpa.my.id">alpa.my.id</a>
+            <button class="top-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap"><i class="sun" data-icon="sun"></i><i class="moon" data-icon="moon"></i></button>
+        </div>
+    </div></header>
+
+    <main class="wrap">
+        <section class="hero" id="top">
+            <img class="hero-logo" src="/media/logo-trant.webp" alt="Design Alpha Class" width="800" height="800">
+            <div class="hero-tags"><span class="tag">#murdes</span><span class="tag">#murlog</span><span class="tag">#murpost</span></div>
+            <h1>Belajar desain,<br>buat karya,<br><span>terus jual wkw</span></h1>
+            <p class="hero-text">MURDES (Murid Desain): tempat bermain dan belajar desain kayak logo JEBE, mascot gim, QRIS, banner, dan lain sebagainya.</p>
+            <div class="hero-actions">
+                <a class="btn btn-solid" href="https://wa.me/6285147540175?text=Halo%20admin%2C%20saya%20mau%20join%20Alpha%27s%20MURDES" target="_blank" rel="noopener noreferrer">Join sekarang</a>
+                <a class="btn btn-ghost" href="#katalog">Lihat katalog</a>
+            </div>
+            <a class="poster" href="#gabung" aria-label="Poster pendaftaran MURDES"><img src="/media/mantap.webp" alt="Poster Alpha's MURDES: 10.000+ aset desain, video tutorial, app premium gratis, template siap pakai" width="864" height="1080"></a>
+        </section>
+
+        <section aria-labelledby="t-tools">
+            <div class="section-head"><h2 class="section-title" id="t-tools"><i data-icon="palette"></i>Software &amp; tools</h2></div>
+            <div class="tools" id="tools"></div>
+        </section>
+
+        <section aria-label="Statistik">
+            <div class="stats">
+                <div class="stat"><b id="stat-project">0</b><span>Total project</span></div>
+                <div class="stat"><b id="stat-asset">0</b><span>Total aset</span></div>
+                <div class="stat"><b id="stat-tutorial">0</b><span>Total tutorial</span></div>
+            </div>
+        </section>
+
+        <section id="katalog" aria-labelledby="t-katalog">
+            <div class="section-head">
+                <h2 class="section-title" id="t-katalog"><i data-icon="shapes"></i>Katalog project</h2>
+                <p class="section-sub">Hasil karya dari kelas MURDES. Project terbaru tampil paling atas.</p>
+            </div>
+            <div class="grid" id="gallery"></div>
+        </section>
+
+        <section id="tentang" aria-labelledby="t-tentang">
+            <div class="section-head"><h2 class="section-title" id="t-tentang"><i data-icon="users"></i>Tentang</h2></div>
+            <div class="card">
+                <p>MURDES singkatan dari Murid Desain: kelas desain grafis yang belajarnya langsung dari praktik, bukan cuma teori. Tiap murid bikin project nyata tiap minggu, dari logo sampai GFX buat kebutuhan game dan konten.</p>
+                <ul class="list">
+                    <li><i data-icon="check"></i>Belajar dari project nyata, bukan latihan kosong</li>
+                    <li><i data-icon="check"></i>Karya kamu bisa masuk katalog dan dilihat orang lain</li>
+                    <li><i data-icon="check"></i>Cocok buat yang mulai dari nol maupun yang mau naik level</li>
+                </ul>
+            </div>
+        </section>
+
+        <section aria-labelledby="t-cara">
+            <div class="section-head"><h2 class="section-title" id="t-cara"><i data-icon="pin"></i>Cara gabung</h2></div>
+            <div class="steps">
+                <div class="card step"><div class="step-num">01</div><div><h3>Chat admin</h3><p>Klik tombol Join, tanya jadwal dan biaya lewat WhatsApp.</p></div></div>
+                <div class="card step"><div class="step-num">02</div><div><h3>Konfirmasi</h3><p>Admin bantu pilih kelas yang cocok sama level kamu sekarang.</p></div></div>
+                <div class="card step"><div class="step-num">03</div><div><h3>Mulai belajar</h3><p>Gabung sesi belajar dan mulai bikin project pertama kamu.</p></div></div>
+            </div>
+        </section>
+
+        <section class="join" id="gabung">
+            <h2>Mau gabung?</h2>
+            <p>Chat admin buat tanya-tanya, atau langsung join.</p>
+            <a class="btn btn-ghost btn-wa" href="https://wa.me/6285147540175?text=Halo%20admin%2C%20saya%20mau%20join%20Alpha%27s%20MURDES" target="_blank" rel="noopener noreferrer"><i data-icon="whatsapp"></i>Chat admin via WhatsApp</a>
+        </section>
+
+        <footer class="footer"><p>&copy; <span id="year"></span> Alpha's MURDES &middot; <a href="https://alpa.my.id">alpa.my.id</a></p></footer>
+    </main>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/main.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
