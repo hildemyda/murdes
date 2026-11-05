@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('stat-asset').textContent = fmt(D.totalAsset || 0);
     document.getElementById('stat-tutorial').textContent = fmt(D.totalTutorial || 0);
 
-    // Software & tools
+    // Software & tools: berjalan loop dari kanan ke kiri.
+    // Satu grup diulang beberapa kali supaya cukup lebar, lalu grup digandakan agar loop mulus.
     var tools = document.getElementById('tools');
-    (D.tools || []).forEach(function (t) {
+    var list = D.tools || [];
+    function makeTool(t) {
         var el = document.createElement('div');
         el.className = 'tool';
         var ic = document.createElement('div');
@@ -25,8 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
         var nm = document.createElement('span');
         nm.textContent = t.name;
         el.appendChild(ic); el.appendChild(nm);
-        tools.appendChild(el);
-    });
+        return el;
+    }
+    if (list.length) {
+        for (var g = 0; g < 2; g++) {
+            var group = document.createElement('div');
+            group.className = 'tools-group';
+            if (g === 1) group.setAttribute('aria-hidden', 'true');
+            for (var r = 0; r < 3; r++) list.forEach(function (t) { group.appendChild(makeTool(t)); });
+            tools.appendChild(group);
+        }
+    }
 
     // Katalog
     var grid = document.getElementById('gallery');
