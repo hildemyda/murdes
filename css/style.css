@@ -150,11 +150,9 @@ section { padding-top: 3rem; }
 .nf-actions { margin-top: 1.75rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 
 @media (min-width: 768px) { .hero-logo { width: 18rem; height: 18rem; } }
+/* Tools tetap berjalan walau pengaturan "kurangi animasi" aktif (geraknya pelan, dan berhenti saat disentuh).
+   Yang dimatikan hanya gulir halus dan transisi kecil. */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    * { transition: none !important; animation: none !important; }
-    .marquee { -webkit-mask-image: none; mask-image: none; }
-    .tools { width: auto; flex-wrap: wrap; justify-content: center; }
-    .tools-group { flex-wrap: wrap; justify-content: center; }
-    .tools-group + .tools-group { display: none; }
+    * { transition: none !important; }
 }
