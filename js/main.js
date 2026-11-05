@@ -1,3 +1,7 @@
+// Perlindungan ringan: menu "simpan gambar" dan seret gambar dimatikan.
+document.addEventListener('contextmenu', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+
 document.addEventListener('DOMContentLoaded', function () {
     var D = window.MURDES || {};
     var fmt = function (n) { return Number(n).toLocaleString('id-ID') + '+'; };
@@ -24,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             ic.textContent = t.name.slice(0, 2).toUpperCase();
         }
-        var nm = document.createElement('span');
-        nm.textContent = t.name;
-        el.appendChild(ic); el.appendChild(nm);
+        el.title = t.name;
+        el.setAttribute('aria-label', t.name);
+        el.appendChild(ic);
         return el;
     }
     if (list.length) {
