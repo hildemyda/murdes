@@ -37,6 +37,7 @@ img { max-width: 100%; display: block; }
 /* Bilah atas */
 .topbar {
     position: sticky; top: 0; z-index: 5;
+    background: var(--bg); /* cadangan untuk browser lama */
     background: color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
@@ -58,7 +59,7 @@ section { padding-top: 3rem; }
 
 /* Hero */
 .hero { padding-top: 2.5rem; text-align: center; }
-.hero-logo { width: 11rem; height: 11rem; object-fit: contain; margin: 0 auto; filter: drop-shadow(0 8px 30px var(--accent-soft)); }
+.hero-logo { width: 15rem; height: 15rem; object-fit: contain; margin: 0 auto; filter: drop-shadow(0 8px 30px var(--accent-soft)); }
 .hero-tags { margin-top: .5rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
 .tag { display: inline-flex; align-items: center; padding: .3rem .8rem; border-radius: 999px; font-size: .875rem; color: var(--muted); background: var(--chip); }
 .hero h1 { margin-top: 1.25rem; font-size: clamp(1.9rem, 7vw, 2.6rem); line-height: 1.15; font-weight: 700; letter-spacing: -0.03em; }
@@ -84,11 +85,15 @@ section { padding-top: 3rem; }
 .section-head { margin-bottom: .9rem; }
 .section-sub { margin-top: .25rem; color: var(--muted); font-size: .95rem; }
 
-/* Tools */
-.tools { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
-.tool { display: flex; flex-direction: column; align-items: center; gap: .45rem; font-size: .75rem; color: var(--muted); width: 4.2rem; text-align: center; }
+/* Tools: berjalan pelan dari kanan ke kiri, tepinya memudar */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.tools { display: flex; width: max-content; animation: tools-scroll 40s linear infinite; }
+.marquee:hover .tools { animation-play-state: paused; }
+.tools-group { display: flex; flex: none; }
+.tool { flex: none; display: flex; flex-direction: column; align-items: center; gap: .45rem; font-size: .75rem; color: var(--muted); width: 4.2rem; margin-right: 1.25rem; text-align: center; }
 .tool-icon { width: 3.4rem; height: 3.4rem; border-radius: .9rem; overflow: hidden; background: var(--chip); display: grid; place-items: center; font-weight: 700; color: var(--muted); border: 1px solid var(--line); }
 .tool-icon img { width: 100%; height: 100%; object-fit: cover; }
+@keyframes tools-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Statistik */
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
@@ -107,6 +112,14 @@ section { padding-top: 3rem; }
 .work-featured .work-label { font-size: .9rem; padding: 2rem .9rem .8rem; }
 .work-ph + .work-label { color: #fff; }
 .empty { color: var(--muted); text-align: center; padding: 1.5rem 0; }
+
+/* Yang kamu dapat */
+.feats { display: grid; gap: .75rem; }
+.feat { display: flex; gap: .9rem; align-items: flex-start; }
+.feat h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; }
+.feat p { margin-top: .15rem; }
+.card-icon { flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: .6rem; background: var(--chip); color: var(--accent); }
+@media (min-width: 560px) { .feats { grid-template-columns: 1fr 1fr; } .feat { flex-direction: column; } }
 
 /* Kartu (tentang & langkah) */
 .card { padding: 1rem 1.1rem; border-radius: .85rem; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
@@ -129,11 +142,18 @@ section { padding-top: 3rem; }
 .footer a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* 404 */
-.nf { min-height: calc(100svh - 3.6rem); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem 1.5rem 4rem; }
+.nf { min-height: calc(100vh - 3.6rem); min-height: calc(100svh - 3.6rem); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem 1.5rem 4rem; }
 .nf-code { font-size: clamp(5.5rem, 26vw, 10rem); font-weight: 700; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); opacity: .6; }
 .nf-title { margin-top: 1rem; font-size: 1.5rem; font-weight: 600; }
 .nf-text { margin-top: .4rem; color: var(--muted); }
 .nf-actions { margin-top: 1.75rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 
-@media (min-width: 768px) { .hero-logo { width: 13rem; height: 13rem; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+@media (min-width: 768px) { .hero-logo { width: 18rem; height: 18rem; } }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+    .marquee { -webkit-mask-image: none; mask-image: none; }
+    .tools { width: auto; flex-wrap: wrap; justify-content: center; }
+    .tools-group { flex-wrap: wrap; justify-content: center; }
+    .tools-group + .tools-group { display: none; }
+}

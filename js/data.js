@@ -13,7 +13,8 @@ window.MURDES = {
         { name: 'PixelLab',     icon: 'media/icon/px.webp' },
         { name: 'AlightMotion', icon: 'media/icon/am.webp' },
         { name: 'PicsArt',      icon: '' },   // belum ada ikonnya: taruh media/icon/pc.webp lalu isi path-nya
-        { name: 'Canva',        icon: '' }    // sama: media/icon/cv.webp
+        { name: 'Canva',        icon: '' },   // sama: media/icon/cv.webp
+        { name: 'Ibis Paint',   icon: '' }    // taruh media/icon/ip.webp lalu isi path-nya
     ],
 
     works: [
