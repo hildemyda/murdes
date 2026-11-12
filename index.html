@@ -3,118 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/media/favicon-192.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#111112">
-    <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+    <title>Hildemyda</title>
+    <meta name="description" content="Hildemyda: alam, kode, dan desain. Portofolio dan kumpulan proyek.">
+    <meta property="og:title" content="Hildemyda">
+    <meta property="og:description" content="Punya hati, tapi tak hati-hati.">
+    <meta property="og:image" content="https://alpa.my.id/media/header.jpg">
+    <meta property="og:url" content="https://alpa.my.id/">
+    <link rel="icon" href="./media/profile.jpg">
+
+    <script>
+        // Terapkan tema tersimpan sebelum halaman tampil, supaya tidak berkedip
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css?v=3">
-    <title>Alpha's MURDES</title>
-    <meta name="description" content="Komunitas desain: aset, template, dan tutorial premium dari banyak aplikasi. Sekali bayar, langsung gabung grup WhatsApp.">
-    <meta property="og:title" content="Alpha's MURDES">
-    <meta property="og:description" content="Komunitas desain dengan aset, template, dan tutorial premium.">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Alpha's MURDES">
-    <meta property="og:image" content="https://murdes.alpa.my.id/media/og-murdes.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Design Alpha Class: komunitas desain Alpha's MURDES">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://murdes.alpa.my.id/media/og-murdes.jpg">
-    <meta property="og:url" content="https://murdes.alpa.my.id/">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header class="topbar"><div class="topbar-in">
-        <a class="brand" href="/"><span>Alpha's MURDES</span></a>
-        <div class="top-actions">
-            <button class="top-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap"><i class="sun" data-icon="sun"></i><i class="moon" data-icon="moon"></i></button>
+
+    <header class="banner">
+        <img src="./media/header.jpg" alt="" width="1600" height="1000">
+    </header>
+
+    <main class="wrap pull">
+        <section class="profile">
+            <div class="avatar" style="background-image: url('./media/profile.jpg')" role="img" aria-label="Foto profil Hildemyda"></div>
+            <div class="name-row">
+                <h1 class="name">Hildemyda</h1>
+                <img class="verified" src="./media/verified-icon.webp" alt="" width="50" height="50">
+            </div>
+            <p class="bio">Punya hati, tapi tak hati-hati</p>
+        </section>
+
+        <div class="main stack">
+            <div class="tags">
+                <span class="tag"><i data-icon="leaf"></i>Nature</span>
+                <span class="tag"><i data-icon="code"></i>Code</span>
+                <span class="tag"><i data-icon="pen-tool"></i>Design</span>
+            </div>
+
+            <nav class="socials" aria-label="Media sosial">
+                <button class="social social-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap"><i class="sun" data-icon="sun"></i><i class="moon" data-icon="moon"></i></button>
+                <a class="social" href="https://instagram.com/alpheditc" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i data-icon="instagram"></i></a>
+                <a class="social" href="https://youtube.com/@hildemyda" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i data-icon="youtube"></i></a>
+                <a class="social" href="https://whatsapp.com/channel/0029VaeTIQODjiOY88u59U2w" target="_blank" rel="noopener noreferrer" aria-label="Channel WhatsApp"><i data-icon="chat"></i></a>
+                <button class="social" id="play-music" type="button" aria-label="Putar musik" aria-pressed="false"><i data-icon="music"></i></button>
+            </nav>
+
+            <section aria-labelledby="t-karya">
+                <div class="section-head">
+                    <h2 class="section-title" id="t-karya"><i data-icon="pin"></i><span id="pinned-title">Pinned Projects</span></h2>
+                    <a class="section-link" id="see-all" href="./design/">Lihat semua</a>
+                </div>
+                <div class="grid" id="home-works"></div>
+            </section>
+
+            <div class="cards">
+                <a class="card" href="./design/">
+                    <div class="card-icon"><i data-icon="palette"></i></div>
+                    <div class="card-text"><h2 class="card-title">Design Results</h2><p class="card-desc">Kumpulan hasil desain</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+                <a class="card" href="https://murdes.alpa.my.id" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon card-icon-green"><i data-icon="graduation-cap"></i></div>
+                    <div class="card-text"><h2 class="card-title">Alpha's MURDES</h2><p class="card-desc">Premium Design Bundle</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+            </div>
+
+            <hr class="divider">
+
+            <div class="cards">
+                <a class="card" href="https://hildemyda.github.io/audio-libraryku/" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon"><i data-icon="file-audio"></i></div>
+                    <div class="card-text"><h2 class="card-title">Audio Library</h2><p class="card-desc">My miuzzzziiiixxxxx</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+                <a class="card" href="https://hildemyda.github.io/qrcode-generator/" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon"><i data-icon="qr-code"></i></div>
+                    <div class="card-text"><h2 class="card-title">QR Code Generator</h2><p class="card-desc">Website pembuat Kode QR</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+                <a class="card" href="https://hildemyda.github.io/paduwo-main/" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon"><i data-icon="book-heart"></i></div>
+                    <div class="card-text"><h2 class="card-title">Paduwo's Website</h2><p class="card-desc">XII IPA 2 MAN Kapuas</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+                <a class="card" href="https://aksana29-mankapuas.github.io/" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon"><i data-icon="globe"></i></div>
+                    <div class="card-text"><h2 class="card-title">Buku Tahunan AKSANA</h2><p class="card-desc">MAN Kapuas Angkatan ke-29</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+                <a class="card" href="https://chat.whatsapp.com/LLV6RA0xPo8Ke0VjWM4TRG" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon"><i data-icon="users"></i></div>
+                    <div class="card-text"><h2 class="card-title">Alpha's Project</h2><p class="card-desc">WhatsApp Group</p></div>
+                    <i class="card-arrow" data-icon="arrow-right"></i>
+                </a>
+            </div>
+
+            <footer class="footer"><p>&copy; 2025 Hildemyda</p></footer>
         </div>
-    </div></header>
-
-    <main class="wrap">
-        <section class="hero" id="top">
-            <img class="hero-logo" src="/media/logo-trant.webp" alt="Design Alpha Class" width="800" height="800">
-            <div class="hero-tags"><span class="tag">#murdes</span><span class="tag">#murlog</span><span class="tag">#murpost</span></div>
-            <h1>Belajar desain,<br>buat karya,<br><span>terus jual wkw</span></h1>
-            <p class="hero-text">MURDES (Murid Desain): komunitas tempat bermain dan belajar desain kayak logo JEBE, mascot gim, QRIS, banner, dan lain sebagainya. Sekali bayar, langsung dapat aset, template, dan tutorial premium.</p>
-            <div class="hero-actions">
-                <a class="btn btn-solid" href="https://wa.me/6285147540175?text=Halo%20admin%2C%20saya%20mau%20join%20Alpha%27s%20MURDES" target="_blank" rel="noopener noreferrer">Join sekarang</a>
-                <a class="btn btn-ghost" href="#katalog">Lihat katalog</a>
-            </div>
-            <a class="poster" href="#gabung" aria-label="Poster pendaftaran MURDES"><img src="/media/mantap.webp" alt="Poster Alpha's MURDES: 10.000+ aset desain, video tutorial, app premium gratis, template siap pakai" width="864" height="1080"></a>
-        </section>
-
-        <section aria-labelledby="t-dapat">
-            <div class="section-head"><h2 class="section-title" id="t-dapat"><i data-icon="check"></i>Yang kamu dapat</h2></div>
-            <div class="feats">
-                <div class="card feat"><div class="card-icon"><i data-icon="folder"></i></div><div><h3>Aset desain</h3><p>Background, effect, karakter, logo PNG, dan lainnya lewat Google Drive.</p></div></div>
-                <div class="card feat"><div class="card-icon"><i data-icon="layers"></i></div><div><h3>Template</h3><p>.plp (PixelLab), .xml (preset Alight Motion), .cdr (CorelDraw), .ipv (Ibis Paint), dan format lain.</p></div></div>
-                <div class="card feat"><div class="card-icon"><i data-icon="play-circle"></i></div><div><h3>Video tutorial</h3><p>Tutorial lewat video YouTube private, bisa ditonton kapan saja.</p></div></div>
-                <div class="card feat"><div class="card-icon"><i data-icon="crown"></i></div><div><h3>Akses premium</h3><p>CapCut, Canva, Alight Motion premium, kalau sedang tersedia.</p></div></div>
-                <div class="card feat"><div class="card-icon"><i data-icon="users"></i></div><div><h3>Grup komunitas</h3><p>Belajar bareng di grup WhatsApp. Pemula boleh tanya-tanya, admin langsung bantu.</p></div></div>
-                <div class="card feat"><div class="card-icon"><i data-icon="lightbulb"></i></div><div><h3>Request tutorial</h3><p>Mau tutorial tertentu, misalnya pasang font di PixelLab? Request, nanti dibuatkan videonya.</p></div></div>
-            </div>
-        </section>
-
-        <section aria-labelledby="t-tools">
-            <div class="section-head section-head-center"><h2 class="section-title" id="t-tools">Software &amp; tools</h2></div>
-            <div class="marquee"><div class="tools" id="tools"></div></div>
-        </section>
-
-        <section aria-label="Statistik">
-            <div class="stats">
-                <div class="stat"><b id="stat-project">0</b><span>Total template</span></div>
-                <div class="stat"><b id="stat-asset">0</b><span>Total aset</span></div>
-                <div class="stat"><b id="stat-tutorial">0</b><span>Total tutorial</span></div>
-            </div>
-        </section>
-
-        <section id="katalog" aria-labelledby="t-katalog">
-            <div class="section-head">
-                <h2 class="section-title" id="t-katalog"><i data-icon="shapes"></i>Preview template &amp; hasil karya</h2>
-                <p class="section-sub">Preview template dan hasil karya di MURDES. Yang terbaru tampil paling atas.</p>
-            </div>
-            <div class="grid" id="gallery"></div>
-        </section>
-
-        <section id="tentang" aria-labelledby="t-tentang">
-            <div class="section-head"><h2 class="section-title" id="t-tentang"><i data-icon="users"></i>Tentang</h2></div>
-            <div class="card">
-                <p>MURDES (Murid Desain) adalah komunitas desain. Di sini tersedia aset, template, dan tutorial premium dari banyak aplikasi. Semua anggota belajar bareng di grup WhatsApp. Pemula yang baru terjun ke dunia desain pun boleh tanya-tanya, admin langsung bantu dengan senang hati.</p>
-                <ul class="list">
-                    <li><i data-icon="check"></i>Sekali bayar, tanpa biaya bulanan</li>
-                    <li><i data-icon="check"></i>Cocok buat pemula sampai yang sudah jago</li>
-                    <li><i data-icon="check"></i>Sesekali ada lomba atau project bareng</li>
-                </ul>
-            </div>
-        </section>
-
-        <section aria-labelledby="t-cara">
-            <div class="section-head"><h2 class="section-title" id="t-cara"><i data-icon="pin"></i>Cara gabung</h2></div>
-            <div class="steps">
-                <div class="card step"><div class="step-num">01</div><div><h3>Chat admin</h3><p>Klik tombol Join, tanya harga dan cara bayar ke admin lewat WhatsApp. Bayarnya sekali saja.</p></div></div>
-                <div class="card step"><div class="step-num">02</div><div><h3>Masuk grup</h3><p>Setelah bayar, kamu dimasukkan ke grup WhatsApp Alpha's MURDES.</p></div></div>
-                <div class="card step"><div class="step-num">03</div><div><h3>Dapat akses</h3><p>Kamu diberi akses Google Drive berisi aset dan video tutorial. Akses premium menyusul kalau sedang tersedia.</p></div></div>
-            </div>
-        </section>
-
-        <section class="join" id="gabung">
-            <h2>Mau gabung?</h2>
-            <p>Tanya harga dan cara bayar langsung ke admin.</p>
-            <a class="btn btn-ghost btn-wa" href="https://wa.me/6285147540175?text=Halo%20admin%2C%20saya%20mau%20join%20Alpha%27s%20MURDES" target="_blank" rel="noopener noreferrer"><i data-icon="whatsapp"></i>Chat admin via WhatsApp</a>
-        </section>
-
-        <footer class="footer"><p>&copy; <span id="year"></span> Alpha's MURDES &middot; <a href="https://alpa.my.id">alpa.my.id</a></p></footer>
     </main>
 
-    <script src="/js/data.js?v=3"></script>
-    <script src="/js/site.js?v=3"></script>
-    <script src="/js/main.js?v=3"></script>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <audio id="song-player" src="./media/audio.mp3" preload="none"></audio>
+
+    <script>window.ROOT = './';</script>
+    <script src="./js/works.js"></script>
+    <script src="./js/site.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Pinned: karya bertanda pinned (maksimal 6). Kalau belum ada yang di-pin,
+            // tampilkan 6 karya teratas di works.js dengan judul "Karya terbaru".
+            var box = document.getElementById('home-works');
+            var all = window.WORKS || [];
+            var pinned = all.filter(function (w) { return w.pinned; });
+            var items = (pinned.length ? pinned : all).slice(0, 6);
+            if (!pinned.length) document.getElementById('pinned-title').textContent = 'Karya terbaru';
+            else document.getElementById('see-all').hidden = true; // sudah ada kartu Design di bawah
+            if (!items.length) {
+                box.outerHTML = '<p class="empty">Karya akan segera ditambahkan.</p>';
+            } else {
+                items.forEach(function (w) {
+                    var a = document.createElement('a');
+                    a.className = 'work';
+                    a.href = './design/#karya-' + w.id;
+                    a.setAttribute('aria-label', 'Lihat karya ' + w.title);
+                    var img = document.createElement('img');
+                    img.src = window.ROOT + w.thumb;
+                    img.alt = w.title;
+                    img.loading = 'lazy';
+                    var label = document.createElement('span');
+                    label.className = 'work-label';
+                    label.textContent = w.title;
+                    a.appendChild(img);
+                    a.appendChild(label);
+                    box.appendChild(a);
+                });
+            }
+
+            // Musik
+            var btn = document.getElementById('play-music');
+            var player = document.getElementById('song-player');
+            btn.addEventListener('click', function () {
+                if (player.paused) {
+                    var p = player.play();
+                    if (p && p.catch) p.catch(function () {});
+                } else {
+                    player.pause();
+                    player.currentTime = 0;
+                }
+            });
+            player.addEventListener('play', function () {
+                btn.classList.add('playing');
+                btn.setAttribute('aria-pressed', 'true');
+                btn.setAttribute('aria-label', 'Hentikan musik');
+            });
+            player.addEventListener('pause', function () {
+                btn.classList.remove('playing');
+                btn.setAttribute('aria-pressed', 'false');
+                btn.setAttribute('aria-label', 'Putar musik');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/media/favicon-192.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#111112">
-    <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+    <title>Halaman tidak ditemukan | Hildemyda</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="/media/profile.jpg">
+
+    <script>
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css?v=3">
-    <title>Halaman tidak ditemukan | Alpha's MURDES</title>
-    <meta name="robots" content="noindex">
+    <!-- Halaman ini tampil di alamat apa pun yang tidak ada (misalnya /design/xyz),
+         jadi semua path memakai garis miring di depan (absolut), bukan relatif. -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header class="topbar"><div class="topbar-in">
-        <a class="brand" href="/"><span>Alpha's MURDES</span></a>
-        <div class="top-actions">
-            <button class="top-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap"><i class="sun" data-icon="sun"></i><i class="moon" data-icon="moon"></i></button>
+
+    <header class="topbar">
+        <div class="topbar-in">
+            <a class="back" href="/"><i data-icon="arrow-left"></i>Hildemyda</a>
+            <button class="top-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap">
+                <i class="sun" data-icon="sun"></i>
+                <i class="moon" data-icon="moon"></i>
+            </button>
         </div>
-    </div></header>
+    </header>
+
     <main class="nf">
         <p class="nf-code" aria-hidden="true">404</p>
         <h1 class="nf-title">Halaman tidak ditemukan</h1>
         <p class="nf-text">Alamat yang kamu buka tidak ada atau sudah dipindah.</p>
-        <div class="nf-actions"><a class="btn btn-solid" href="/">Kembali ke beranda</a></div>
+        <div class="nf-actions">
+            <a class="btn btn-solid" href="/">Kembali ke beranda</a>
+            <a class="btn btn-ghost" href="/design/">Lihat Design Results</a>
+        </div>
     </main>
-    <script src="/js/site.js?v=3"></script>
+
+    <script src="/js/site.js"></script>
 </body>
 </html>

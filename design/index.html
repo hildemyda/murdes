@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Results | Hildemyda</title>
+    <meta name="description" content="Hasil dan preview desain Hildemyda.">
+    <meta property="og:title" content="Design Results | Hildemyda">
+    <meta property="og:description" content="Riwayat desain yang pernah saya bikin, sekalian buat testimoni juga.">
+    <meta property="og:image" content="https://alpa.my.id/karya/karya-01-thumb.webp">
+    <meta property="og:url" content="https://alpa.my.id/design/">
+    <link rel="icon" href="../media/profile.jpg">
+
+    <script>
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="topbar-in">
+            <span class="topbar-title">Alpha's Project</span>
+            <button class="top-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap">
+                <i class="sun" data-icon="sun"></i>
+                <i class="moon" data-icon="moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="page">
+        <h1 class="page-title">Design Results</h1>
+        <p class="page-sub">Riwayat desain yang pernah saya bikin, sekalian buat testimoni juga.</p>
+
+        <div class="marquee" id="marquee" aria-label="Aplikasi yang saya pakai"><div class="tools" id="tools"></div></div>
+
+        <div class="filters" id="filters" hidden></div>
+        <div class="grid" id="works"></div>
+
+        <section class="cta">
+            <a class="cta-link" href="https://wa.me/6285754711287" target="_blank" rel="noopener noreferrer">
+                <i data-icon="whatsapp"></i>Order desain via WhatsApp
+            </a>
+        </section>
+
+    </main>
+
+    <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+        <div class="viewer-box">
+            <div class="viewer-head">
+                <div>
+                    <h2 class="viewer-title" id="viewer-title"></h2>
+                    <p class="viewer-cat" id="viewer-cat"></p>
+                </div>
+                <button class="viewer-close" id="viewer-close" type="button" aria-label="Tutup"><i data-icon="x"></i></button>
+            </div>
+            <div class="viewer-body" id="viewer-body"></div>
+        </div>
+    </dialog>
+
+    <script>window.ROOT = '../';</script>
+    <script src="../js/works.js"></script>
+    <script src="../js/site.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var works = window.WORKS || [];
+            var grid = document.getElementById('works');
+            var filters = document.getElementById('filters');
+            var viewer = document.getElementById('viewer');
+            var body = document.getElementById('viewer-body');
+            var current = 'Semua';
+
+            function render() {
+                grid.innerHTML = '';
+                var list = works.filter(function (w) { return current === 'Semua' || w.category === current; });
+                if (!list.length) {
+                    grid.outerHTML = '<p class="empty" id="works">Belum ada karya.</p>';
+                    grid = document.getElementById('works');
+                    return;
+                }
+                list.forEach(function (w) {
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'work';
+                    b.id = 'karya-' + w.id;
+                    b.setAttribute('aria-label', 'Buka karya ' + w.title);
+                    var img = document.createElement('img');
+                    img.src = window.ROOT + w.thumb;
+                    img.alt = w.title;
+                    img.loading = 'lazy';
+                    var label = document.createElement('span');
+                    label.className = 'work-label';
+                    label.textContent = w.title;
+                    b.appendChild(img);
+                    b.appendChild(label);
+                    b.addEventListener('click', function () { openWork(w); });
+                    grid.appendChild(b);
+                });
+            }
+
+            // Filter hanya muncul kalau ada 2 kategori atau lebih.
+            // Tombol "Filter" di kiri; pilihan (Semua, Logo, Poster, ...) muncul saat ditekan.
+            var cats = [];
+            works.forEach(function (w) { if (cats.indexOf(w.category) < 0) cats.push(w.category); });
+            if (cats.length > 1) {
+                filters.hidden = false;
+                var toggle = document.createElement('button');
+                toggle.type = 'button';
+                toggle.className = 'filter-btn';
+                toggle.setAttribute('aria-haspopup', 'true');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.innerHTML = '<i data-icon="filter"></i><span>Filter</span><i class="chev" data-icon="chevron-down"></i>';
+                var toggleLabel = toggle.querySelector('span');
+                var menu = document.createElement('div');
+                menu.className = 'filter-menu';
+                menu.hidden = true;
+
+                function setMenu(open) {
+                    menu.hidden = !open;
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                }
+
+                ['Semua'].concat(cats).forEach(function (c) {
+                    var opt = document.createElement('button');
+                    opt.type = 'button';
+                    opt.className = 'filter-opt';
+                    opt.textContent = c;
+                    opt.setAttribute('aria-pressed', c === current ? 'true' : 'false');
+                    opt.addEventListener('click', function () {
+                        current = c;
+                        menu.querySelectorAll('.filter-opt').forEach(function (x) {
+                            x.setAttribute('aria-pressed', x === opt ? 'true' : 'false');
+                        });
+                        toggleLabel.textContent = c === 'Semua' ? 'Filter' : c;
+                        setMenu(false);
+                        render();
+                    });
+                    menu.appendChild(opt);
+                });
+
+                toggle.addEventListener('click', function () { setMenu(menu.hidden); });
+                document.addEventListener('click', function (e) { if (!filters.contains(e.target)) setMenu(false); });
+                document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+                filters.appendChild(toggle);
+                filters.appendChild(menu);
+                window.hydrateIcons(filters);
+            }
+
+            // Aplikasi berjalan (loop). Daftarnya ada di js/works.js (window.TOOLS).
+            var track = document.getElementById('tools');
+            var tools = window.TOOLS || [];
+            if (!tools.length) {
+                document.getElementById('marquee').hidden = true;
+            } else {
+                for (var g = 0; g < 2; g++) {
+                    var group = document.createElement('div');
+                    group.className = 'tools-group';
+                    if (g === 1) group.setAttribute('aria-hidden', 'true');
+                    for (var r = 0; r < 3; r++) {
+                        tools.forEach(function (t) {
+                            var el = document.createElement('div');
+                            el.className = 'tool';
+                            el.title = t.name;
+                            var ic = document.createElement('div');
+                            ic.className = 'tool-icon';
+                            if (t.icon) {
+                                var img = document.createElement('img');
+                                img.src = window.ROOT + t.icon;
+                                img.alt = '';
+                                img.loading = 'lazy';
+                                ic.appendChild(img);
+                            } else {
+                                ic.textContent = t.name.slice(0, 2).toUpperCase();
+                            }
+                            el.appendChild(ic);
+                            group.appendChild(el);
+                        });
+                    }
+                    track.appendChild(group);
+                }
+            }
+
+            function openWork(w) {
+                document.getElementById('viewer-title').textContent = w.title;
+                document.getElementById('viewer-cat').textContent = w.category;
+                body.innerHTML = '';
+                if (w.desc) {
+                    var p = document.createElement('p');
+                    p.className = 'viewer-desc';
+                    p.textContent = w.desc;
+                    body.appendChild(p);
+                }
+                w.images.forEach(function (src) {
+                    var img = document.createElement('img');
+                    img.src = window.ROOT + src;
+                    img.alt = w.title;
+                    img.loading = 'lazy';
+                    body.appendChild(img);
+                });
+                body.scrollTop = 0;
+                if (typeof viewer.showModal === 'function') viewer.showModal();
+                else viewer.setAttribute('open', '');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeWork() {
+                if (typeof viewer.close === 'function') viewer.close();
+                else viewer.removeAttribute('open');
+            }
+
+            viewer.addEventListener('close', function () { document.body.style.overflow = ''; });
+            document.getElementById('viewer-close').addEventListener('click', closeWork);
+            viewer.addEventListener('click', function (e) { if (e.target === viewer) closeWork(); });
+
+            render();
+
+            // Tautan dari beranda (design/#karya-1) langsung membuka karya itu
+            var m = location.hash.match(/^#karya-(\d+)$/);
+            if (m) {
+                var target = works.filter(function (w) { return String(w.id) === m[1]; })[0];
+                if (target) openWork(target);
+            }
+        });
+    </script>
+</body>
+</html>
