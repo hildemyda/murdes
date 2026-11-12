@@ -12,17 +12,19 @@ window.MURDES = {
         { name: 'CorelDraw',    icon: 'media/icon/cd.webp' },
         { name: 'PixelLab',     icon: 'media/icon/px.webp' },
         { name: 'AlightMotion', icon: 'media/icon/am.webp' },
-        { name: 'PicsArt',      icon: '' },   // belum ada ikonnya: taruh media/icon/pc.webp lalu isi path-nya
-        { name: 'Canva',        icon: '' },   // sama: media/icon/cv.webp
-        { name: 'Ibis Paint',   icon: '' }    // taruh media/icon/ip.webp lalu isi path-nya
+        { name: 'PicsArt',      icon: 'media/icon/pa.webp' },
+        { name: 'Canva',        icon: 'media/icon/cv.webp' },
+        { name: 'Ibis Paint',   icon: 'media/icon/ip.webp' },
+        { name: 'Test',   icon: '' }
     ],
 
     works: [
-        { title: 'Contoh Mascot Game',     image: 'media/mantap.webp',    tag: 'Mascot' },
-        { title: 'Contoh Logo Esport',     image: '', tag: 'Logo' },
-        { title: 'Contoh Banner Turnamen', image: '', tag: 'Banner' },
-        { title: 'Contoh GFX Thumbnail',   image: '', tag: 'GFX' },
-        { title: 'Contoh Overlay Stream',  image: 'media/logo-trant.webp', tag: 'Overlay' },
-        { title: 'Contoh Logo Clan',       image: '', tag: 'Logo' }
+        { title: 'Logo 010', image: 'media/result/logo01.webp', tag: 'Logo' },
+        { title: 'Logo 003', image: 'media/result/logo02.webp', tag: 'Logo' },
+        { title: 'Logo 026', image: 'media/result/logo03.webp', tag: 'Logo' },
+        { title: 'Logo 009', image: 'media/result/logo04.webp', tag: 'Logo' },
+        { title: 'Logo 030', image: 'media/result/logo05.webp', tag: 'Logo' },
+        { title: 'Logo 029', image: 'media/result/logo06.webp', tag: 'Logo' },
+        { title: 'Logo 029', image: 'media/result/logo06.webp', tag: 'Logo' }
     ]
 };
