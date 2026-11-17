@@ -43,6 +43,11 @@
     function applyTheme(light) {
         document.documentElement.classList.toggle('light', light);
         try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+        // Cookie dibagi ke semua subdomain alpa.my.id supaya pilihan tema ikut terbawa
+        try {
+            var shared = /(^|\.)alpa\.my\.id$/.test(location.hostname) ? '; domain=.alpa.my.id' : '';
+            document.cookie = 'theme=' + (light ? 'light' : 'dark') + shared + '; path=/; max-age=31536000; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+        } catch (e) {}
     }
 
     document.addEventListener('DOMContentLoaded', function () {
