@@ -1,11 +1,14 @@
 /* Semua isi yang sering diganti ada di file ini. Edit lalu commit, selesai.
 
-   works : daftar project di katalog. Yang PALING ATAS tampil besar sebagai unggulan.
-           title = nama project, image = path gambar (kosongkan "" kalau belum ada), tag = label kecil.
+   totalTemplate / totalAsset / totalTutorial : angka di bagian statistik. Tulis angka polos; 1000 ke atas otomatis jadi 10K+.
+   works : daftar karya di katalog gaya album. Tinggi baris sama, lebar mengikuti rasio asli gambar.
+           title = nama karya (kosongkan '' kalau tidak mau ada teks di atas gambar), image = path gambar (kosongkan "" kalau belum ada), tag = label kecil.
+           ratio (opsional) = rasio gambar, misalnya 16/9. Kalau diisi, gambar tidak perlu diukur dulu sehingga halaman lebih cepat tampil.
    Kalau menambah gambar, simpan di folder media/ lalu tulis misalnya "media/proyek-01.webp".
 */
 window.MURDES = {
-    totalAsset: 10000,   // angka polos, tanpa titik
+    totalTemplate: 30,   // angka polos, tanpa titik
+    totalAsset: 10000,
     totalTutorial: 5,
 
     tools: [
@@ -14,8 +17,7 @@ window.MURDES = {
         { name: 'AlightMotion', icon: 'media/icon/am.webp' },
         { name: 'PicsArt',      icon: 'media/icon/pa.webp' },
         { name: 'Canva',        icon: 'media/icon/cv.webp' },
-        { name: 'Ibis Paint',   icon: 'media/icon/ip.webp' },
-        { name: 'Test',   icon: '' }
+        { name: 'Ibis Paint',   icon: 'media/icon/ip.webp' }
     ],
 
     works: [
@@ -24,7 +26,6 @@ window.MURDES = {
         { title: 'Logo 026', image: 'media/result/logo03.webp', tag: 'Logo' },
         { title: 'Logo 009', image: 'media/result/logo04.webp', tag: 'Logo' },
         { title: 'Logo 030', image: 'media/result/logo05.webp', tag: 'Logo' },
-        { title: 'Logo 029', image: 'media/result/logo06.webp', tag: 'Logo' },
         { title: 'Logo 029', image: 'media/result/logo06.webp', tag: 'Logo' }
     ]
 };

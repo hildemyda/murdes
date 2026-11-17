@@ -8,11 +8,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/media/favicon-192.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="theme-color" content="#111112">
-    <script>try { (function () { var m = document.cookie.match(/(?:^|;\s*)theme=(light|dark)/); var t = m ? m[1] : localStorage.getItem('theme'); if (t === 'light') document.documentElement.classList.add('light'); })(); } catch (e) {}</script>
+    <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="stylesheet" href="/css/style.css?v=4">
     <title>Alpha's MURDES</title>
     <meta name="description" content="Komunitas desain: aset, template, dan tutorial premium dari banyak aplikasi. Sekali bayar, langsung gabung grup WhatsApp.">
     <meta property="og:title" content="Alpha's MURDES">
@@ -68,9 +68,9 @@
 
         <section aria-label="Statistik">
             <div class="stats">
-                <div class="stat"><b id="stat-project">0</b><span>Total template</span></div>
-                <div class="stat"><b id="stat-asset">0</b><span>Total aset</span></div>
-                <div class="stat"><b id="stat-tutorial">0</b><span>Total tutorial</span></div>
+                <div class="stat"><b id="stat-project">0</b><span>Template</span></div>
+                <div class="stat"><b id="stat-asset">0</b><span>Aset</span></div>
+                <div class="stat"><b id="stat-tutorial">0</b><span>Tutorial</span></div>
             </div>
         </section>
 
@@ -79,7 +79,8 @@
                 <h2 class="section-title" id="t-katalog"><i data-icon="shapes"></i>Preview template &amp; hasil karya</h2>
                 <p class="section-sub">Preview template dan hasil karya di MURDES. Yang terbaru tampil paling atas.</p>
             </div>
-            <div class="grid" id="gallery"></div>
+            <div class="album" id="gallery"></div>
+            <p class="album-note">Ini baru sebagian hasil karya. <a href="https://wa.me/6285147540175?text=Halo%20admin%2C%20saya%20mau%20lihat%20semua%20project%20result%20Alpha%27s%20MURDES" target="_blank" rel="noopener noreferrer">Chat admin</a> untuk melihat semua project result.</p>
         </section>
 
         <section id="tentang" aria-labelledby="t-tentang">
@@ -112,9 +113,9 @@
         <footer class="footer"><p>&copy; <span id="year"></span> Alpha's MURDES &middot; <a href="https://alpa.my.id">alpa.my.id</a></p></footer>
     </main>
 
-    <script src="/js/data.js?v=3"></script>
-    <script src="/js/site.js?v=3"></script>
-    <script src="/js/main.js?v=3"></script>
+    <script src="/js/data.js?v=4"></script>
+    <script src="/js/site.js?v=4"></script>
+    <script src="/js/main.js?v=4"></script>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
